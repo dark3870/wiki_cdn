@@ -1,0 +1,462 @@
+body {
+    font-family: 'Pretendard', Arial, sans-serif;
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+    line-height: 1.6;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    position: relative; /* 부모 요소를 상대 위치로 설정 */
+}
+
+.header, .footer {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.content {
+    font-size: 20px;
+    line-height: 1.8;
+    padding: 20px 25px;
+    background-color: #fcfcfc;
+    border-radius: 8px;
+    border-bottom: none;
+    margin-bottom: 20px;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.word-list ul {
+    padding-left: 0;
+}
+
+.word-list li {
+    display: inline-block;
+    margin: 5px;
+    list-style: none;
+}
+
+.word-list a {
+    text-decoration: none;
+    color: #0b63c5;
+}
+
+.word-list a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .footer p, .content {
+        font-size: 0.9em;
+    }
+
+    .content {
+        font-size: 17px;
+        line-height: 1.7;
+        padding: 15px;
+        margin-left: -10px;
+        margin-right: -10px;
+        border-radius: 0;
+    }
+}
+
+.search-form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.search-input {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 25px 0 0 25px;
+    transition: all 0.3s ease;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-input:focus {
+    border-color: #0b63c5;
+    box-shadow: 0 0 5px rgba(11, 99, 197, 0.5);
+}
+
+.search-btn {
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(135deg, #0b63c5, #2989d8);
+    color: white;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.search-btn:hover {
+    background: linear-gradient(135deg, #064a9f, #1c6eb5);
+}
+
+@media screen and (max-width: 600px) {
+    .search-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .search-input, .search-btn {
+        width: 80%;
+        border-radius: 25px;
+        text-align: center;
+    }
+
+    .search-btn {
+        border-radius: 25px;
+    }
+}
+
+
+.no-result {
+    text-align: center;
+    border: 1px solid #f1f1f1;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fcfcfc;
+    margin-top: 40px;
+}
+
+.no-result h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.no-result p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 8px;
+    z-index: 9999;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.autocomplete div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.autocomplete div:hover {
+    background-color: #f1f1f1;
+}
+
+.content-evaluation {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.eval-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+.good-btn {
+    background-color: #28a745;
+}
+
+.bad-btn {
+    background-color: #dc3545;
+}
+
+.eval-btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+.language-switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.language-switch button {
+    padding: 3px 7px;
+    margin-left: 3px;
+    border: none;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #0b63c5;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.language-switch button:hover {
+    background-color: #1960a4;
+}
+
+.keyword-box {
+    padding: 15px;
+    background-color: #f5f8fd;
+    border: 1px solid #dae7f7;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.keyword-box ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.keyword-box ul li {
+    margin: 6px;
+}
+
+.keyword-box ul li a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #d5dbe2;
+    color: #333;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.keyword-box ul li a:hover {
+    background-color: #bcc5cf;
+    transform: translateY(-2px) scale(1.05);
+}
+
+.history-container {
+    background-color: #f7f9fb;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.history-container h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#word-history {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+#word-history li {
+    display: inline-block;
+    margin: 5px;
+}
+
+#word-history li a {
+    color: #0b63c5;
+    text-decoration: none;
+    padding: 4px 10px;
+    background: #ffffff;
+    border-radius: 15px;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#word-history li a:hover {
+    background-color: #0b63c5;
+    color: #ffffff;
+}
+
+/* 다크모드 기본 스타일 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #121212;
+        color: #e0e0e0;
+    }
+
+    .header, .footer {
+        background: #1e1e1e;
+    }
+
+    .content {
+        background-color: #242424;
+        color: #ddd;
+    }
+
+    .search-input {
+        background-color: #2c2c2c;
+        border-color: #555;
+        color: #ddd;
+    }
+
+    .search-btn {
+        background: linear-gradient(135deg, #3a66b7, #244782);
+    }
+
+    .search-btn:hover {
+        background: linear-gradient(135deg, #335795, #1b3663);
+    }
+
+    .word-list a {
+        color: #80afff;
+    }
+
+    .history-container {
+        background-color: #181a1b; /* 좀 더 진한 어두운 컬러 */
+        color: #b0b3b8; /* 부드러운 회색 계열의 컬러로 변경 */
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .history-container h3 {
+        color: #a5a8ac; /* 부드러운 회색톤으로 변경 */
+        border-bottom: 1px solid #2c2f33; /* 더 어두운 회색톤으로 변경 */
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+    }
+
+    .history-container ul li a {
+        color: #8094a0; /* 더 부드러운 회색 빛깔 */
+        background-color: #232527; /* 아주 어두운 톤으로 버튼 배경 설정 */
+        padding: 6px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        display: inline-block;
+    }
+
+    .history-container ul li a:hover {
+        background-color: #343638; /* 은은하게 밝아지는 효과 */
+        color: #ccd0d4; /* 밝기도 약간 부드러운 톤 적용 */
+        text-decoration: none;
+    }
+
+    .keyword-box ul li a {
+        color: #8ab4f8;
+        background-color: #2f2f2f; /* 버튼과 같은 효과를 줄때 배경 지정 */
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+    }
+
+    .keyword-box ul li a:hover {
+        color: #ffffff;
+        background-color: #446089;
+        text-decoration: none;
+    }
+
+    .keyword-box {
+        background-color: #242424;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+    }
+
+    .keyword-box ul {
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .keyword-box ul li {
+        list-style: none;
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+
+    .autocomplete {
+        background-color: #252729; /* 어두운 배경으로 또렷하게 */
+        color: #ccd0d4; /* 밝은 회색 계열의 폰트 */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.4); /* 더 잘 보이게 음영 추가 */
+        border-radius: 5px;
+        border: 1px solid #3a3c3f; /* 명확한 테두리 추가 */
+    }
+
+    .autocomplete div {
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .autocomplete div:hover {
+        background-color: #323538; /* 살짝 밝기를 줘서 호버 시 선택 명확하게 */
+        color: #fff; /* 마우스 오버 시 텍스트를 완전히 흰색으로 강조 */
+    }
+}
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #0b63c5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#scrollToTopBtn:hover {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.content {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.header .data-count-top {
+    position: absolute;   /* 원하는 위치를 절대적으로 설정 */
+    top: 10px;            /* 위쪽에서의 거리 조정 (피드백에 따라 조정 가능) */
+    left: 15px;          /* 오른쪽에서의 거리 조정 */
+    font-size: 12px;      /* 작은 글씨로 설정 */
+    color: #888;          /* 밝은 회색으로 눈에 잘 띄지 않게 설정 */
+}
