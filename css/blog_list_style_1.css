@@ -1,0 +1,67 @@
+body {
+    font-family: 'Pretendard', 'Malgun Gothic', Arial, sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+nav a {
+    float: left;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #575757;
+}
+.container {
+    margin: auto;
+    padding: 20px;
+    max-width: 800px;
+    background: white;
+}
+.post {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.load-more-btn {
+    background-color: #4CAF50;          /* 강조 색상 선택 (블로그 헤더 색상과 통일) */
+    color: white;
+    font-size: 18px;                    /* 버튼 문자 크기 확대 */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px 30px;                 /* 버튼을 좀 더 크고 편안하게 확대 */
+    border: none;
+    border-radius: 25px;                /* 둥근 모서리로 부드럽게 표현 */
+    transition: background-color 0.3s, transform 0.2s; /* 부드러운 전환효과 */
+}
+
+.load-more-btn:hover {
+    background-color: #43A047;          /* 마우스 오버 시 진한 녹색 */
+    transform: scale(1.05);             /* 오버 시 약간 커지게 효과 추가 */
+}
+
+.load-more-btn:active {
+    transform: scale(0.95);             /* 클릭 시 약간 눌리는 효과 */
+}
